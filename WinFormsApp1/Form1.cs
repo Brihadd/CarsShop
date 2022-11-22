@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CrmSystem
+namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {

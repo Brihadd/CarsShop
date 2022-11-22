@@ -35,20 +35,38 @@ namespace Models.Migrations
                     b.Property<int>("CarYear")
                         .HasColumnType("int");
 
+                    b.Property<int>("ClientCarBuyerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Condition")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DealState")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Discount")
                         .HasColumnType("int");
 
                     b.Property<string>("EngineName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("EnginePower")
-                        .HasColumnType("int");
+                    b.Property<double>("EnginePower")
+                        .HasColumnType("float");
 
-                    b.Property<int>("EngineVolume")
-                        .HasColumnType("int");
+                    b.Property<double>("EngineVolume")
+                        .HasColumnType("float");
 
                     b.Property<int>("Fuel")
                         .HasColumnType("int");
+
+                    b.Property<bool>("IsLuxury")
+                        .HasColumnType("bit");
 
                     b.Property<double>("Kilometers")
                         .HasColumnType("float");
@@ -59,12 +77,39 @@ namespace Models.Migrations
                     b.Property<string>("Model")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("RequaredPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<decimal>("SellPrice")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("Models.Client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("Models.Employee", b =>
@@ -77,7 +122,13 @@ namespace Models.Migrations
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmployeePassword")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Login")
@@ -95,6 +146,45 @@ namespace Models.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("Models.History", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CarMake")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CarModel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CarRegNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ClientId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ClientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClientSurname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DealState")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DealTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Historys");
                 });
 #pragma warning restore 612, 618
         }
