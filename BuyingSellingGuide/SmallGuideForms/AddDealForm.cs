@@ -48,6 +48,7 @@ namespace BuyingSellingGuide.SmallGuideForms
         private void button1_Click(object sender, EventArgs e)
         {
             Car car = new Car();
+            car.RequaredPrice = 0;
             car.ClientId = int.Parse(comboBox1.Text.Split('(', ')')[1]);
             if (!Validation.CarValidation.LengthValidation(textBox1.Text, "Incorrect make!")) return;
             else car.Make = textBox1.Text;
@@ -104,6 +105,7 @@ namespace BuyingSellingGuide.SmallGuideForms
             {
                 car.IsLuxury= false;
             }
+            car.LastBuyerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
             context.Cars.Add(car);
             context.SaveChanges();
             DialogResult = DialogResult.OK;

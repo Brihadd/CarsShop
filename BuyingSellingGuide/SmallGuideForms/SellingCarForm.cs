@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BuyingSellingGuide.SmallGuideForms
 {
@@ -32,7 +33,7 @@ namespace BuyingSellingGuide.SmallGuideForms
                 comboBox1.Items.Add(name);
             }
             comboBox1.Text = clients[0].Name + " " + clients[0].Surname + " " + "(" + clients[0].Id + ")";
-            Pictures();
+            GetPictures();
             car = context.Cars.Where(x => x.Id == carId).First();
             Client client = context.Clients.Where(x => x.Id == car.ClientId).First();
             label18.Text = car.Make;
@@ -40,6 +41,9 @@ namespace BuyingSellingGuide.SmallGuideForms
             label20.Text = car.CarRegNumber;
             label21.Text = car.CarYear.ToString();
             label22.Text = car.Fuel.ToString();
+            label30.Text = car.LastBuyerName;
+            label32.Text = car.LastPricerName;
+
             if (car.IsLuxury == true)
             {
                 checkBox1.Checked = true;
@@ -54,10 +58,9 @@ namespace BuyingSellingGuide.SmallGuideForms
             label26.Text = car.EngineName.ToString();
             label27.Text = car.EnginePower.ToString();
             label28.Text = car.EngineVolume.ToString();
-            label23.Text = car.BuyPrice.ToString();
             label17.Text = car.BuyPrice.ToString();
         }
-        private void Pictures()
+        private void GetPictures()
         {
             var imageColumn = new DataGridViewImageColumn();
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -74,7 +77,7 @@ namespace BuyingSellingGuide.SmallGuideForms
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            label17.Text = (car.BuyPrice - (car.BuyPrice / 100) * (int)numericUpDown1.Value).ToString();
+            PriceCount();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -84,6 +87,7 @@ namespace BuyingSellingGuide.SmallGuideForms
             car.ClientCarBuyerId= int.Parse(comboBox1.Text.Split('(', ')')[1]);
             car.DealState=DealState.Sold;
             car.Discount = (int)numericUpDown1.Value;
+            car.LastSallerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
             context.SaveChanges();
             CarHistory();
             DialogResult = DialogResult.OK;
@@ -102,8 +106,37 @@ namespace BuyingSellingGuide.SmallGuideForms
             history.CarRegNumber = car.CarRegNumber;
             history.DealTime = DateTime.Now;
             history.DealState = car.DealState;
-            context.Historys.Add(history);
+            context.Histories.Add(history);
             context.SaveChanges();
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            Bitmap selectedImg = (Bitmap)dataGridView1.CurrentRow.Cells[0].Value;
+            CarImagesForm carImagesForm = new CarImagesForm(selectedImg);
+            carImagesForm.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            PriceCount();
+        }
+        private void PriceCount()
+        {
+            if (!decimal.TryParse(textBox1.Text, out var price))
+            {
+                MessageBox.Show("Incorrect  price!");
+                return;
+            }
+            else if (price < 0)
+            {
+                MessageBox.Show("Incorrect  price!");
+                return;
+            }
+            else
+            {
+                label17.Text = (price - (price / 100) * (int)numericUpDown1.Value).ToString();
+            }
         }
     }
 }

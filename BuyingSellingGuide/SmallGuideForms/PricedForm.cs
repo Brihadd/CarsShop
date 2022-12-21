@@ -31,10 +31,14 @@ namespace BuyingSellingGuide.SmallGuideForms
             label5.Text = car.Model;
             label7.Text = car.RequaredPrice.ToString();
             label9.Text = car.BuyPrice.ToString();
+            label12.Text = car.LastBuyerName;
+            label14.Text = car.LastPricerName;
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
             car.DealState = DealState.Refused;
+            car.LastBuyerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
             context.SaveChanges();
             CarHistory();
             DialogResult = DialogResult.OK;
@@ -53,13 +57,14 @@ namespace BuyingSellingGuide.SmallGuideForms
             history.CarRegNumber = car.CarRegNumber;
             history.DealTime = DateTime.Now;
             history.DealState = car.DealState;
-            context.Historys.Add(history);
+            context.Histories.Add(history);
             context.SaveChanges();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             car.DealState = DealState.Bought;
+            car.LastBuyerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
             context.SaveChanges();
             CarHistory();
             DialogResult = DialogResult.OK;

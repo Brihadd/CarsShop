@@ -17,6 +17,9 @@ namespace CrmSystem
         public CRMLoginForm():base()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CRMLoginForm_KeyUp);
+      
         }
 
         protected override void button1_Click(object sender, EventArgs e)
@@ -36,6 +39,16 @@ namespace CrmSystem
                 textPassword.Clear();
                 textUsername.Focus();
             }
+        }
+
+        private void CRMLoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CRMLoginForm_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) button1.PerformClick();
         }
     }
 }

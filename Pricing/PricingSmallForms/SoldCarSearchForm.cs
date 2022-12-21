@@ -25,7 +25,7 @@ namespace Pricing.PricingSmallForms
 
         private void SoldCarSearchForm_Load(object sender, EventArgs e)
         {
-            var history = context.Historys.Where(x => x.Id == historyId).First();
+            var history = context.Histories.Where(x => x.Id == historyId).First();
             var client = context.Clients.Where(x => x.Id == history.ClientId).First();
             var car = context.Cars.Where(x => x.Id == history.CarId).First();
             clientBuyerId = car.ClientCarBuyerId;

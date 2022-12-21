@@ -22,7 +22,7 @@ namespace Pricing.PricingSmallForms
             InitializeComponent();
             this.historyId = histiryId;
         }
-        private void Pictures()
+        private void GetPictures()
         {
             var imageColumn = new DataGridViewImageColumn();
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -40,9 +40,9 @@ namespace Pricing.PricingSmallForms
         }
         private void SearchCarForm_Load(object sender, EventArgs e)
         {
-            var history = context.Historys.Where(x => x.Id == historyId).First();
+            var history = context.Histories.Where(x => x.Id == historyId).First();
             carId = history.CarId;
-            Pictures();
+            GetPictures();
             var car = context.Cars.Where(x => x.Id == carId).First();
             label18.Text = car.Make;
             label19.Text = car.Model;

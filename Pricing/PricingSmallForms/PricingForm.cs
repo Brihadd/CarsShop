@@ -71,5 +71,10 @@ namespace Pricing.PricingSmallForms
             }
 
         }
+
+        private void PricingForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

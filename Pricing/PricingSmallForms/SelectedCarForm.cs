@@ -23,7 +23,7 @@ namespace Pricing.PricingSmallForms
             this.carId = carId;
         }
 
-        private void Pictures()
+        private void GetPictures()
         {
             var imageColumn = new DataGridViewImageColumn();
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -41,7 +41,7 @@ namespace Pricing.PricingSmallForms
         }
         private void SelectedCarForm_Load(object sender, EventArgs e)
         {
-            Pictures();
+            GetPictures();
             car = context.Cars.Where(x => x.Id == carId).First();
             Client client = context.Clients.Where(x=>x.Id==car.ClientId).First();
             label17.Text= client.Name + " " + client.Surname + " " + "(" + client.Id + ")";
@@ -50,7 +50,9 @@ namespace Pricing.PricingSmallForms
             label20.Text = car.CarRegNumber;
             label21.Text = car.CarYear.ToString();
             label22.Text = car.Fuel.ToString();
-            if(car.IsLuxury==true)
+            label30.Text = car.LastBuyerName;
+            label32.Text = car.LastPricerName;
+            if (car.IsLuxury==true)
             {
                 checkBox1.Checked = true;
             }
@@ -80,6 +82,7 @@ namespace Pricing.PricingSmallForms
         {
             car.Comment = richTextBox1.Text;
             car.DealState = DealState.NotEnoughInformation;
+            car.LastPricerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
             context.SaveChanges();
             CarHistory();
             this.DialogResult = DialogResult.OK;
@@ -98,7 +101,7 @@ namespace Pricing.PricingSmallForms
             history.CarRegNumber = car.CarRegNumber;
             history.DealTime = DateTime.Now;
             history.DealState = car.DealState;
-            context.Historys.Add(history);
+            context.Histories.Add(history);
             context.SaveChanges();
         }
 
@@ -107,6 +110,7 @@ namespace Pricing.PricingSmallForms
         {
             car.Comment = richTextBox1.Text;
             car.DealState = DealState.Priced;
+            car.LastPricerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
             if (!decimal.TryParse(textBox9.Text, out var buyPrice))
             {
                 MessageBox.Show("Incorrect buy price!");

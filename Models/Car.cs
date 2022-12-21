@@ -10,6 +10,9 @@ namespace Models
     {
         public int Id { get; set; }
         public DealState DealState { get; set; }
+        public string LastBuyerName { get; set; }
+        public string LastSallerName { get; set; }
+        public string LastPricerName { get; set; }
         public int ClientId { get; set; }
         public int ClientCarBuyerId { get; set; }
         public string Comment { get; set; }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace BuyingSellingGuide.SmallGuideForms
 {
@@ -76,17 +77,6 @@ namespace BuyingSellingGuide.SmallGuideForms
                 return false;
             }
             else car.EngineVolume = engineVolume;
-            if (!decimal.TryParse(textBox10.Text, out var requaredPrice))
-            {
-                MessageBox.Show("Incorrect requared price!");
-                return false;
-            }
-            else if (requaredPrice <= 0)
-            {
-                MessageBox.Show("Incorrect requared price!");
-                return false;
-            }
-            else car.RequaredPrice= requaredPrice;
             car.Comment = richTextBox1.Text;
             if (checkBox1.Checked == true)
             {
@@ -104,12 +94,28 @@ namespace BuyingSellingGuide.SmallGuideForms
          
             if (DealInfo() == true)
             {
+
+                if (!decimal.TryParse(textBox10.Text, out var requaredPrice))
+                {
+                    MessageBox.Show("Incorrect requared price!");
+                    return;
+                }
+                else if (requaredPrice < 0)
+                {
+                    MessageBox.Show("Incorrect requared price!");
+                    return;
+                }
+                else
+                {
+                    car.RequaredPrice = requaredPrice;
+                }
+                car.LastBuyerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
                 context.SaveChanges();
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
-        private void Pictures()
+        private void GetPictures()
         {
 
             dataGridView1.Rows.Clear();
@@ -130,7 +136,7 @@ namespace BuyingSellingGuide.SmallGuideForms
             imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.Columns.Add(imageColumn);
-            Pictures();
+            GetPictures();
             ComboBoxLoad();
             car = context.Cars.Where(x => x.Id == carId).First();
             textBox1.Text = car.Make;
@@ -143,6 +149,16 @@ namespace BuyingSellingGuide.SmallGuideForms
             textBox6.Text = car.EngineName;
             textBox7.Text = car.EnginePower.ToString();
             textBox8.Text = car.EngineVolume.ToString();
+            textBox10.Text = car.RequaredPrice.ToString();
+            label18.Text = car.LastBuyerName.ToString();
+            if (car.LastPricerName != null)
+            {
+                label20.Text = car.LastPricerName.ToString();
+            }
+            else
+            {
+                label20.Text = "ar was not priced yet";
+            }    
             richTextBox1.Text = car.Comment;
             if (car.IsLuxury == true)
             {
@@ -191,7 +207,7 @@ namespace BuyingSellingGuide.SmallGuideForms
             history.CarRegNumber = car.CarRegNumber;
             history.DealTime=DateTime.Now;
             history.DealState = car.DealState;
-            context.Historys.Add(history);
+            context.Histories.Add(history);
             context.SaveChanges();
         }
 
@@ -206,6 +222,21 @@ namespace BuyingSellingGuide.SmallGuideForms
                     MessageBox.Show("You must load at least 2 car images!");
                     return;
                 }
+                if (!decimal.TryParse(textBox10.Text, out var requaredPrice))
+                {
+                    MessageBox.Show("Incorrect requared price!");
+                    return;
+                }
+                else if (requaredPrice <= 0)
+                {
+                    MessageBox.Show("Incorrect requared price!");
+                    return;
+                }
+                else
+                {
+                    car.RequaredPrice = requaredPrice;
+                }
+                car.LastBuyerName = AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
                 car.DealState = DealState.ForPricing;
                 context.SaveChanges();
                 CarHistory();
@@ -217,7 +248,7 @@ namespace BuyingSellingGuide.SmallGuideForms
         private void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog();
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;)| *.jpg; *.jpeg; *.gif; *.bmp;";
+            open.Filter = "Image Files(*.jpg;*.png;*.webp; *.jpeg; *.gif; *.bmp;)| *.jpg;*.png;*.webp; *.jpeg; *.gif; *.bmp;";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 textBox9.Text = open.FileName;
@@ -236,7 +267,7 @@ namespace BuyingSellingGuide.SmallGuideForms
             }
             File.Copy(textBox9.Text, Path.Combine($"Img\\{carId}", Path.GetFileName(textBox9.Text)),false);
             label13.Text = "Image file saved successfully!";
-            Pictures();
+            GetPictures();
 
         }
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

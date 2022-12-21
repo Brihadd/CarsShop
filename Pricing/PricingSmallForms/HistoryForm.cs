@@ -24,14 +24,14 @@ namespace Pricing.PricingSmallForms
 
         private void HistoryForm_Load(object sender, EventArgs e)
         {
-            historyBindingSource.DataSource = context.Historys.Where(x=>x.ClientId==clientId).ToList();  
+            historyBindingSource.DataSource = context.Histories.Where(x=>x.ClientId==clientId).ToList();  
 
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             var historyId = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            var history = context.Historys.Where(x => x.Id == historyId).First();
+            var history = context.Histories.Where(x => x.Id == historyId).First();
             if (history.DealState == DealState.Sold)
             {
                 SoldCarSearchForm soldCarSearchForm = new SoldCarSearchForm(historyId);

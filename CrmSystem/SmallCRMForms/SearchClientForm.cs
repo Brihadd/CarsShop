@@ -27,7 +27,7 @@ namespace CrmSystem.SmallCRMForms
             label3.Text=client.Name;
             label5.Text = client.Surname;
             label7.Text = client.Email;
-            label9.Text = client.BirthDate.Date.ToString();
+            label9.Text = client.BirthDate.ToShortDateString();
 
         }
     }

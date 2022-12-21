@@ -47,5 +47,10 @@ namespace BuyingSellingGuide.SmallGuideForms
                 MessageBox.Show("You do not have access rights.");
             }
         }
+
+        private void BSGForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

@@ -68,6 +68,7 @@
             this.dataGridView1.DataSource = this.historyBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(3, 51);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(945, 347);
             this.dataGridView1.TabIndex = 0;
@@ -78,6 +79,7 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // carIdDataGridViewTextBoxColumn
@@ -85,54 +87,63 @@
             this.carIdDataGridViewTextBoxColumn.DataPropertyName = "CarId";
             this.carIdDataGridViewTextBoxColumn.HeaderText = "CarId";
             this.carIdDataGridViewTextBoxColumn.Name = "carIdDataGridViewTextBoxColumn";
+            this.carIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // clientIdDataGridViewTextBoxColumn
             // 
             this.clientIdDataGridViewTextBoxColumn.DataPropertyName = "ClientId";
             this.clientIdDataGridViewTextBoxColumn.HeaderText = "ClientId";
             this.clientIdDataGridViewTextBoxColumn.Name = "clientIdDataGridViewTextBoxColumn";
+            this.clientIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // clientNameDataGridViewTextBoxColumn
             // 
             this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "ClientName";
             this.clientNameDataGridViewTextBoxColumn.HeaderText = "ClientName";
             this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
+            this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // clientSurnameDataGridViewTextBoxColumn
             // 
             this.clientSurnameDataGridViewTextBoxColumn.DataPropertyName = "ClientSurname";
             this.clientSurnameDataGridViewTextBoxColumn.HeaderText = "ClientSurname";
             this.clientSurnameDataGridViewTextBoxColumn.Name = "clientSurnameDataGridViewTextBoxColumn";
+            this.clientSurnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // carMakeDataGridViewTextBoxColumn
             // 
             this.carMakeDataGridViewTextBoxColumn.DataPropertyName = "CarMake";
             this.carMakeDataGridViewTextBoxColumn.HeaderText = "CarMake";
             this.carMakeDataGridViewTextBoxColumn.Name = "carMakeDataGridViewTextBoxColumn";
+            this.carMakeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // carModelDataGridViewTextBoxColumn
             // 
             this.carModelDataGridViewTextBoxColumn.DataPropertyName = "CarModel";
             this.carModelDataGridViewTextBoxColumn.HeaderText = "CarModel";
             this.carModelDataGridViewTextBoxColumn.Name = "carModelDataGridViewTextBoxColumn";
+            this.carModelDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // carRegNumberDataGridViewTextBoxColumn
             // 
             this.carRegNumberDataGridViewTextBoxColumn.DataPropertyName = "CarRegNumber";
             this.carRegNumberDataGridViewTextBoxColumn.HeaderText = "CarRegNumber";
             this.carRegNumberDataGridViewTextBoxColumn.Name = "carRegNumberDataGridViewTextBoxColumn";
+            this.carRegNumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dealTimeDataGridViewTextBoxColumn
             // 
             this.dealTimeDataGridViewTextBoxColumn.DataPropertyName = "DealTime";
             this.dealTimeDataGridViewTextBoxColumn.HeaderText = "DealTime";
             this.dealTimeDataGridViewTextBoxColumn.Name = "dealTimeDataGridViewTextBoxColumn";
+            this.dealTimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dealStateDataGridViewTextBoxColumn
             // 
             this.dealStateDataGridViewTextBoxColumn.DataPropertyName = "DealState";
             this.dealStateDataGridViewTextBoxColumn.HeaderText = "DealState";
             this.dealStateDataGridViewTextBoxColumn.Name = "dealStateDataGridViewTextBoxColumn";
+            this.dealStateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // historyBindingSource
             // 
@@ -195,6 +206,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "HistoryForm";
             this.Text = "HistoryForm";
+            this.Load += new System.EventHandler(this.HistoryForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -57,5 +57,10 @@ namespace CrmSystem
             historyForm.WindowState = FormWindowState.Maximized;
             historyForm.Show();
         }
+
+        private void CRMform_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

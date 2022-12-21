@@ -60,8 +60,12 @@
             this.label16 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
@@ -123,7 +127,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(405, 143);
+            this.label22.Location = new System.Drawing.Point(419, 143);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(44, 15);
             this.label22.TabIndex = 154;
@@ -132,7 +136,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(405, 114);
+            this.label21.Location = new System.Drawing.Point(419, 113);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(44, 15);
             this.label21.TabIndex = 153;
@@ -141,7 +145,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(405, 87);
+            this.label20.Location = new System.Drawing.Point(419, 84);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 15);
             this.label20.TabIndex = 152;
@@ -150,7 +154,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(405, 56);
+            this.label19.Location = new System.Drawing.Point(419, 56);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(44, 15);
             this.label19.TabIndex = 151;
@@ -159,7 +163,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(405, 27);
+            this.label18.Location = new System.Drawing.Point(419, 27);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 15);
             this.label18.TabIndex = 150;
@@ -183,6 +187,7 @@
             this.dataGridView1.RowTemplate.Height = 150;
             this.dataGridView1.Size = new System.Drawing.Size(289, 397);
             this.dataGridView1.TabIndex = 143;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // button1
             // 
@@ -354,15 +359,6 @@
             this.label17.TabIndex = 169;
             this.label17.Text = "label17";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(429, 230);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(44, 15);
-            this.label23.TabIndex = 170;
-            this.label23.Text = "label23";
-            // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(429, 256);
@@ -372,13 +368,61 @@
             this.numericUpDown1.TabIndex = 171;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(311, 323);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(61, 15);
+            this.label29.TabIndex = 172;
+            this.label29.Text = "Last buyer";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(429, 323);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(44, 15);
+            this.label30.TabIndex = 173;
+            this.label30.Text = "label30";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(311, 356);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(61, 15);
+            this.label31.TabIndex = 174;
+            this.label31.Text = "Last pricer";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(429, 356);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(44, 15);
+            this.label32.TabIndex = 175;
+            this.label32.Text = "label32";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(429, 227);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(184, 23);
+            this.textBox1.TabIndex = 176;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // SellingCarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 442);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.label29);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.label23);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label16);
@@ -455,7 +499,11 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

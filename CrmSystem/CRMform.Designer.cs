@@ -94,6 +94,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CRMform";
             this.Text = "CRM system";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CRMform_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

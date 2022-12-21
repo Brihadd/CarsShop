@@ -40,7 +40,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "CRMLoginForm";
-            this.Text = "Login";
+            this.Load += new System.EventHandler(this.CRMLoginForm_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CRMLoginForm_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
