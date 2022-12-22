@@ -40,7 +40,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(49, 198);
+            this.button1.Location = new System.Drawing.Point(70, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 34);
             this.button1.TabIndex = 0;
@@ -50,23 +50,25 @@
             // 
             // textUsername
             // 
-            this.textUsername.Location = new System.Drawing.Point(49, 61);
+            this.textUsername.Location = new System.Drawing.Point(71, 63);
             this.textUsername.Name = "textUsername";
-            this.textUsername.Size = new System.Drawing.Size(233, 23);
+            this.textUsername.Size = new System.Drawing.Size(179, 23);
             this.textUsername.TabIndex = 1;
+            this.textUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textUsername_KeyDown);
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(49, 139);
+            this.textPassword.Location = new System.Drawing.Point(71, 138);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(233, 23);
+            this.textPassword.Size = new System.Drawing.Size(179, 23);
             this.textPassword.TabIndex = 2;
+            this.textPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textPassword_KeyDown);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(49, 33);
+            this.label1.Location = new System.Drawing.Point(70, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 3;
@@ -76,7 +78,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(49, 110);
+            this.label2.Location = new System.Drawing.Point(70, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 15);
             this.label2.TabIndex = 4;
@@ -97,7 +99,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Showcard Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(283, 238);
+            this.label4.Location = new System.Drawing.Point(247, 234);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 15);
             this.label4.TabIndex = 6;
@@ -119,6 +121,7 @@
             this.Name = "LoginForm";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginForm_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

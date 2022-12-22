@@ -38,6 +38,7 @@ namespace CrmSystem.SmallCRMForms
 
         private void EmployeesForm_Load(object sender, EventArgs e)
         {
+            dataGridView1.Width = this.Width;
             RefreshGrid();
             var employees = context.Employees.ToList();
 
@@ -102,6 +103,12 @@ namespace CrmSystem.SmallCRMForms
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void EmployeesForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
+           
         }
     }
 }

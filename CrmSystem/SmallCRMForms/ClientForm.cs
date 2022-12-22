@@ -31,6 +31,7 @@ namespace CrmSystem.SmallCRMForms
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
+            dataGridView1.Width = this.Width;
             RefreshGrid();
         }
 
@@ -60,6 +61,12 @@ namespace CrmSystem.SmallCRMForms
             {
                 RefreshGrid();
             }
+        }
+
+        private void ClientForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
+
         }
     }
 }
