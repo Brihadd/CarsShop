@@ -51,6 +51,7 @@ namespace BuyingSellingGuide.SmallGuideForms
 
         private void BuyingGuideForm_Load(object sender, EventArgs e)
         {
+            
             RefreshGrid();
             for (int i = 0; i < 4; i++)
             {
