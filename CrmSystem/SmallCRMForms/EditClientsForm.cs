@@ -52,6 +52,5 @@ namespace CrmSystem.SmallCRMForms
             DialogResult = DialogResult.OK;
             this.Close();
         }
-
     }
 }

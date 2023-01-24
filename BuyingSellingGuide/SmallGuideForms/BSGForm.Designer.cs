@@ -70,6 +70,7 @@
             this.Name = "BSGForm";
             this.Text = "Buying/Selling guide";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BSGForm_FormClosing);
+            this.Load += new System.EventHandler(this.BSGForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

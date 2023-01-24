@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -28,6 +29,9 @@ namespace CrmSystem.SmallCRMForms
         public EmployeesForm()
         {
             InitializeComponent();
+        
+
+
         }
         private void RefreshGrid()
         {
@@ -41,7 +45,6 @@ namespace CrmSystem.SmallCRMForms
             dataGridView1.Width = this.Width;
             RefreshGrid();
             var employees = context.Employees.ToList();
-
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)

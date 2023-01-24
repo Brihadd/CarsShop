@@ -25,8 +25,8 @@ namespace BuyingSellingGuide
             if ((user != null && user.EmployeePassword == Password.HashPassword(textPassword.Text) && Status.LoginBSG(user)
                || (user != null && user.Login == "admin" && user.EmployeePassword == "admin")))
             {
-                new BSGForm().Show();
                 AppSettings.LoggedEmployee = user;
+                new BSGForm().Show();
                 this.Hide();
             }
             else

@@ -25,8 +25,8 @@ namespace Pricing
             if ((user != null && user.EmployeePassword == Password.HashPassword(textPassword.Text) && Status.LoginPricing(user)
                || (user != null && user.Login == "admin" && user.EmployeePassword == "admin")))
             {
-                new PricingForm().Show();
                 AppSettings.LoggedEmployee = user;
+                new PricingForm().Show();
                 this.Hide();
             }
             else

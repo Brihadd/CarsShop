@@ -206,8 +206,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "HistoryForm";
-            this.Text = "HistoryForm";
+            this.Text = "History";
             this.Load += new System.EventHandler(this.HistoryForm_Load);
+            this.Resize += new System.EventHandler(this.HistoryForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).EndInit();
             this.ResumeLayout(false);

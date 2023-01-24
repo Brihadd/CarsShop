@@ -25,7 +25,6 @@ namespace Pricing.PricingSmallForms
         private void HistoryForm_Load(object sender, EventArgs e)
         {
             historyBindingSource.DataSource = context.Histories.Where(x=>x.ClientId==clientId).ToList();  
-
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -42,6 +41,12 @@ namespace Pricing.PricingSmallForms
                 SearchForm searchForm = new SearchForm(historyId);
                 searchForm.ShowDialog();
             }
+        }
+
+        private void HistoryForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
+            dataGridView1.Height = this.Height;
         }
     }
 }

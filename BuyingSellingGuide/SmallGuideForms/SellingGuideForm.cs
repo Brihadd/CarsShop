@@ -63,5 +63,10 @@ namespace BuyingSellingGuide.SmallGuideForms
         {
             RefreshGrid();
         }
+
+        private void SellingGuideForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
+        }
     }
 }

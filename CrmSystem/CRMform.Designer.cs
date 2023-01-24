@@ -95,6 +95,7 @@
             this.Name = "CRMform";
             this.Text = "CRM system";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CRMform_FormClosing);
+            this.Load += new System.EventHandler(this.CRMform_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

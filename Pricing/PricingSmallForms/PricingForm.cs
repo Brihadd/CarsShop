@@ -21,6 +21,8 @@ namespace Pricing.PricingSmallForms
 
         private void PricingForm_Load(object sender, EventArgs e)
         {
+            this.Text = "User: " + AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
+            this.Width = dataGridView1.Width;
             RefreshGrid();
         }
         private void RefreshGrid()
@@ -75,6 +77,11 @@ namespace Pricing.PricingSmallForms
         private void PricingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void PricingForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
         }
     }
 }

@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dealStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastBuyerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +74,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -100,13 +101,17 @@
             this.sellPriceDataGridViewTextBoxColumn,
             this.isLuxuryDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.carBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 29);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 29);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(777, 352);
+            this.dataGridView1.Size = new System.Drawing.Size(795, 352);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // carBindingSource
+            // 
+            this.carBindingSource.DataSource = typeof(Models.Car);
             // 
             // label1
             // 
@@ -116,10 +121,6 @@
             this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "Luxury";
-            // 
-            // carBindingSource
-            // 
-            this.carBindingSource.DataSource = typeof(Models.Car);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -135,6 +136,7 @@
             this.dealStateDataGridViewTextBoxColumn.HeaderText = "DealState";
             this.dealStateDataGridViewTextBoxColumn.Name = "dealStateDataGridViewTextBoxColumn";
             this.dealStateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dealStateDataGridViewTextBoxColumn.Visible = false;
             // 
             // lastBuyerNameDataGridViewTextBoxColumn
             // 
@@ -149,6 +151,7 @@
             this.lastSallerNameDataGridViewTextBoxColumn.HeaderText = "LastSallerName";
             this.lastSallerNameDataGridViewTextBoxColumn.Name = "lastSallerNameDataGridViewTextBoxColumn";
             this.lastSallerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastSallerNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // lastPricerNameDataGridViewTextBoxColumn
             // 
@@ -179,6 +182,7 @@
             this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
             this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
             this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commentDataGridViewTextBoxColumn.Visible = false;
             // 
             // makeDataGridViewTextBoxColumn
             // 
@@ -200,6 +204,7 @@
             this.carRegNumberDataGridViewTextBoxColumn.HeaderText = "CarRegNumber";
             this.carRegNumberDataGridViewTextBoxColumn.Name = "carRegNumberDataGridViewTextBoxColumn";
             this.carRegNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.carRegNumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // carYearDataGridViewTextBoxColumn
             // 
@@ -207,6 +212,7 @@
             this.carYearDataGridViewTextBoxColumn.HeaderText = "CarYear";
             this.carYearDataGridViewTextBoxColumn.Name = "carYearDataGridViewTextBoxColumn";
             this.carYearDataGridViewTextBoxColumn.ReadOnly = true;
+            this.carYearDataGridViewTextBoxColumn.Visible = false;
             // 
             // fuelDataGridViewTextBoxColumn
             // 
@@ -214,6 +220,7 @@
             this.fuelDataGridViewTextBoxColumn.HeaderText = "Fuel";
             this.fuelDataGridViewTextBoxColumn.Name = "fuelDataGridViewTextBoxColumn";
             this.fuelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fuelDataGridViewTextBoxColumn.Visible = false;
             // 
             // kilometersDataGridViewTextBoxColumn
             // 
@@ -221,6 +228,7 @@
             this.kilometersDataGridViewTextBoxColumn.HeaderText = "Kilometers";
             this.kilometersDataGridViewTextBoxColumn.Name = "kilometersDataGridViewTextBoxColumn";
             this.kilometersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kilometersDataGridViewTextBoxColumn.Visible = false;
             // 
             // conditionDataGridViewTextBoxColumn
             // 
@@ -235,6 +243,7 @@
             this.engineNameDataGridViewTextBoxColumn.HeaderText = "EngineName";
             this.engineNameDataGridViewTextBoxColumn.Name = "engineNameDataGridViewTextBoxColumn";
             this.engineNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.engineNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // enginePowerDataGridViewTextBoxColumn
             // 
@@ -242,6 +251,7 @@
             this.enginePowerDataGridViewTextBoxColumn.HeaderText = "EnginePower";
             this.enginePowerDataGridViewTextBoxColumn.Name = "enginePowerDataGridViewTextBoxColumn";
             this.enginePowerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.enginePowerDataGridViewTextBoxColumn.Visible = false;
             // 
             // engineVolumeDataGridViewTextBoxColumn
             // 
@@ -249,6 +259,7 @@
             this.engineVolumeDataGridViewTextBoxColumn.HeaderText = "EngineVolume";
             this.engineVolumeDataGridViewTextBoxColumn.Name = "engineVolumeDataGridViewTextBoxColumn";
             this.engineVolumeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.engineVolumeDataGridViewTextBoxColumn.Visible = false;
             // 
             // discountDataGridViewTextBoxColumn
             // 
@@ -256,6 +267,7 @@
             this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
             this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
             this.discountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.discountDataGridViewTextBoxColumn.Visible = false;
             // 
             // requaredPriceDataGridViewTextBoxColumn
             // 
@@ -263,6 +275,7 @@
             this.requaredPriceDataGridViewTextBoxColumn.HeaderText = "RequaredPrice";
             this.requaredPriceDataGridViewTextBoxColumn.Name = "requaredPriceDataGridViewTextBoxColumn";
             this.requaredPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.requaredPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // buyPriceDataGridViewTextBoxColumn
             // 
@@ -277,6 +290,7 @@
             this.sellPriceDataGridViewTextBoxColumn.HeaderText = "SellPrice";
             this.sellPriceDataGridViewTextBoxColumn.Name = "sellPriceDataGridViewTextBoxColumn";
             this.sellPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sellPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // isLuxuryDataGridViewCheckBoxColumn
             // 
@@ -296,6 +310,7 @@
             this.Name = "SellingGuideForm";
             this.Text = "Selling guide";
             this.Load += new System.EventHandler(this.SellingGuideForm_Load);
+            this.Resize += new System.EventHandler(this.SellingGuideForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).EndInit();
             this.ResumeLayout(false);

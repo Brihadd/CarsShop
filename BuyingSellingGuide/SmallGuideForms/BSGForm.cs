@@ -52,5 +52,10 @@ namespace BuyingSellingGuide.SmallGuideForms
         {
             Environment.Exit(0);
         }
+
+        private void BSGForm_Load(object sender, EventArgs e)
+        {
+            this.Text = "User: " + AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
+        }
     }
 }

@@ -27,8 +27,8 @@ namespace CrmSystem
             if ((user != null&& user.EmployeePassword == Password.HashPassword(textPassword.Text) && Status.LoginCRM(user)
                || (user != null && user.Login == "admin" && user.EmployeePassword == "admin")))
             {
-                new CRMform().Show();
                 AppSettings.LoggedEmployee = user;
+                new CRMform().Show();
                 this.Hide();
             }
             else

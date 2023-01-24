@@ -22,17 +22,17 @@ namespace CrmSystem.SmallCRMForms
 
         private void AddEmployeeForm_Load(object sender, EventArgs e)
         {
-           int IfAdmin;
+            int ifAdmin;
            if (Status.AdminRighs(AppSettings.LoggedEmployee))
             {
-                 IfAdmin = 0;
+                 ifAdmin = 0;
             }
            else
             {
-                 IfAdmin = 1;
+                 ifAdmin = 1;
             }
 
-           for(int i =IfAdmin;i<UserStatusList.AdminList.Count;i++)
+           for(int i =ifAdmin;i<UserStatusList.AdminList.Count;i++)
             {
                 comboBox1.Items.Add(UserStatusList.AdminList[i].ToString());
             }

@@ -33,6 +33,10 @@
             this.addCarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dealStateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastBuyerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,10 +60,6 @@
             this.buyPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sellPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isLuxuryDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.carBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.carBindingSource)).BeginInit();
@@ -72,7 +72,7 @@
             this.deleteToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1009, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(769, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -95,6 +95,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -125,9 +126,32 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1012, 309);
+            this.dataGridView1.Size = new System.Drawing.Size(765, 309);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // carBindingSource
+            // 
+            this.carBindingSource.DataSource = typeof(Models.Car);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(613, 27);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(152, 23);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(534, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Deal state";
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -157,6 +181,7 @@
             this.lastSallerNameDataGridViewTextBoxColumn.HeaderText = "LastSallerName";
             this.lastSallerNameDataGridViewTextBoxColumn.Name = "lastSallerNameDataGridViewTextBoxColumn";
             this.lastSallerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastSallerNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // lastPricerNameDataGridViewTextBoxColumn
             // 
@@ -187,6 +212,7 @@
             this.commentDataGridViewTextBoxColumn.HeaderText = "Comment";
             this.commentDataGridViewTextBoxColumn.Name = "commentDataGridViewTextBoxColumn";
             this.commentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.commentDataGridViewTextBoxColumn.Visible = false;
             // 
             // makeDataGridViewTextBoxColumn
             // 
@@ -208,6 +234,7 @@
             this.carRegNumberDataGridViewTextBoxColumn.HeaderText = "CarRegNumber";
             this.carRegNumberDataGridViewTextBoxColumn.Name = "carRegNumberDataGridViewTextBoxColumn";
             this.carRegNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.carRegNumberDataGridViewTextBoxColumn.Visible = false;
             // 
             // carYearDataGridViewTextBoxColumn
             // 
@@ -215,6 +242,7 @@
             this.carYearDataGridViewTextBoxColumn.HeaderText = "CarYear";
             this.carYearDataGridViewTextBoxColumn.Name = "carYearDataGridViewTextBoxColumn";
             this.carYearDataGridViewTextBoxColumn.ReadOnly = true;
+            this.carYearDataGridViewTextBoxColumn.Visible = false;
             // 
             // fuelDataGridViewTextBoxColumn
             // 
@@ -222,6 +250,7 @@
             this.fuelDataGridViewTextBoxColumn.HeaderText = "Fuel";
             this.fuelDataGridViewTextBoxColumn.Name = "fuelDataGridViewTextBoxColumn";
             this.fuelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fuelDataGridViewTextBoxColumn.Visible = false;
             // 
             // kilometersDataGridViewTextBoxColumn
             // 
@@ -229,6 +258,7 @@
             this.kilometersDataGridViewTextBoxColumn.HeaderText = "Kilometers";
             this.kilometersDataGridViewTextBoxColumn.Name = "kilometersDataGridViewTextBoxColumn";
             this.kilometersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kilometersDataGridViewTextBoxColumn.Visible = false;
             // 
             // conditionDataGridViewTextBoxColumn
             // 
@@ -243,6 +273,7 @@
             this.engineNameDataGridViewTextBoxColumn.HeaderText = "EngineName";
             this.engineNameDataGridViewTextBoxColumn.Name = "engineNameDataGridViewTextBoxColumn";
             this.engineNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.engineNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // enginePowerDataGridViewTextBoxColumn
             // 
@@ -250,6 +281,7 @@
             this.enginePowerDataGridViewTextBoxColumn.HeaderText = "EnginePower";
             this.enginePowerDataGridViewTextBoxColumn.Name = "enginePowerDataGridViewTextBoxColumn";
             this.enginePowerDataGridViewTextBoxColumn.ReadOnly = true;
+            this.enginePowerDataGridViewTextBoxColumn.Visible = false;
             // 
             // engineVolumeDataGridViewTextBoxColumn
             // 
@@ -257,6 +289,7 @@
             this.engineVolumeDataGridViewTextBoxColumn.HeaderText = "EngineVolume";
             this.engineVolumeDataGridViewTextBoxColumn.Name = "engineVolumeDataGridViewTextBoxColumn";
             this.engineVolumeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.engineVolumeDataGridViewTextBoxColumn.Visible = false;
             // 
             // discountDataGridViewTextBoxColumn
             // 
@@ -264,6 +297,7 @@
             this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
             this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
             this.discountDataGridViewTextBoxColumn.ReadOnly = true;
+            this.discountDataGridViewTextBoxColumn.Visible = false;
             // 
             // requaredPriceDataGridViewTextBoxColumn
             // 
@@ -271,6 +305,7 @@
             this.requaredPriceDataGridViewTextBoxColumn.HeaderText = "RequaredPrice";
             this.requaredPriceDataGridViewTextBoxColumn.Name = "requaredPriceDataGridViewTextBoxColumn";
             this.requaredPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.requaredPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // buyPriceDataGridViewTextBoxColumn
             // 
@@ -278,6 +313,7 @@
             this.buyPriceDataGridViewTextBoxColumn.HeaderText = "BuyPrice";
             this.buyPriceDataGridViewTextBoxColumn.Name = "buyPriceDataGridViewTextBoxColumn";
             this.buyPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.buyPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // sellPriceDataGridViewTextBoxColumn
             // 
@@ -285,6 +321,7 @@
             this.sellPriceDataGridViewTextBoxColumn.HeaderText = "SellPrice";
             this.sellPriceDataGridViewTextBoxColumn.Name = "sellPriceDataGridViewTextBoxColumn";
             this.sellPriceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sellPriceDataGridViewTextBoxColumn.Visible = false;
             // 
             // isLuxuryDataGridViewCheckBoxColumn
             // 
@@ -293,34 +330,11 @@
             this.isLuxuryDataGridViewCheckBoxColumn.Name = "isLuxuryDataGridViewCheckBoxColumn";
             this.isLuxuryDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // carBindingSource
-            // 
-            this.carBindingSource.DataSource = typeof(Models.Car);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(613, 27);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 23);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(534, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Deal state";
-            // 
             // BuyingGuideForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 368);
+            this.ClientSize = new System.Drawing.Size(769, 368);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
@@ -329,6 +343,7 @@
             this.Name = "BuyingGuideForm";
             this.Text = "Buying guide";
             this.Load += new System.EventHandler(this.BuyingGuideForm_Load);
+            this.Resize += new System.EventHandler(this.BuyingGuideForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

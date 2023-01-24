@@ -16,7 +16,6 @@ namespace CrmSystem
     {
         public CRMform()
         {
-            
             InitializeComponent();
         }
 
@@ -61,6 +60,11 @@ namespace CrmSystem
         private void CRMform_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void CRMform_Load(object sender, EventArgs e)
+        {
+            this.Text = "User: " + AppSettings.LoggedEmployee.Name + " " + AppSettings.LoggedEmployee.Surname;
         }
     }
 }

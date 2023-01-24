@@ -145,5 +145,10 @@ namespace BuyingSellingGuide.SmallGuideForms
                 return;
             }
         }
+
+        private void BuyingGuideForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
+        }
     }
 }

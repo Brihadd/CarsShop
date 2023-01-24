@@ -57,7 +57,7 @@ namespace CrmSystem.SmallCRMForms
         private void button1_Click_1(object sender, EventArgs e)
         {
            if(comboBox1.SelectedIndex == 0)historyBindingSource.DataSource=context.Histories.Where(x=>x.CarId.ToString().Contains(textBox1.Text)).ToList();
-           else if(comboBox1.SelectedIndex==1) historyBindingSource.DataSource = context.Histories.Where(x => x.ClientId.ToString().Contains(textBox1.Text)).ToList();
+           else if (comboBox1.SelectedIndex == 1) historyBindingSource.DataSource = context.Histories.Where(x => x.ClientId.ToString().Contains(textBox1.Text)).ToList();
            else if (comboBox1.SelectedIndex == 2) historyBindingSource.DataSource = context.Histories.Where(x => x.ClientName.Contains(textBox1.Text)).ToList();
            else if (comboBox1.SelectedIndex == 3) historyBindingSource.DataSource = context.Histories.Where(x => x.ClientSurname.Contains(textBox1.Text)).ToList();
            else if (comboBox1.SelectedIndex == 4) historyBindingSource.DataSource = context.Histories.Where(x => x.CarMake.Contains(textBox1.Text)).ToList();
@@ -69,9 +69,15 @@ namespace CrmSystem.SmallCRMForms
 
         private void HistoryForm_Load(object sender, EventArgs e)
         {
+            dataGridView1.Width = this.Width;
             RefreshGrid();
             comboBox1.SelectedIndex = 1;
             dataGridView1.Columns[7].SortMode = DataGridViewColumnSortMode.Automatic;
+        }
+
+        private void HistoryForm_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Width = this.Width;
         }
     }
 }

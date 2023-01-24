@@ -100,12 +100,11 @@
             this.birthDateDataGridViewTextBoxColumn,
             this.deletedDataGridViewCheckBoxColumn});
             this.dataGridView1.DataSource = this.employeeBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 52);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(954, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(954, 398);
             this.dataGridView1.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
